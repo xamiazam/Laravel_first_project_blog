@@ -21,14 +21,14 @@ Route::get('/blog',[\App\Http\Controllers\BlogPostController::class,'index']);
 
 //Single Blog Post
 Route::get('/blog/{blogPost}',[\App\Http\Controllers\BlogPostController::class,'show']);
-Route::get('/blog/create/post',[\App\Http\Controllers\BlogPostController::class,'create']);
-Route::post('/blog/create/post',[\App\Http\Controllers\BlogPostController::class,'store']);
+
 // only authenticated users can use the routes in this group
 Route::group(['middleware' => 'auth'], function() {
 
-    // put routes here...
-    Route::get('/blog/{blogPost}/edit',[\App\Http\Controllers\BlogPostController::class,'edit']);
-    Route::put('/blog/{blogPost}/edit',[\App\Http\Controllers\BlogPostController::class,'update']);
+Route::get('/blog/create/post',[\App\Http\Controllers\BlogPostController::class,'create']);
+Route::post('/blog/create/post',[\App\Http\Controllers\BlogPostController::class,'store']);
+Route::get('/blog/{blogPost}/edit',[\App\Http\Controllers\BlogPostController::class,'edit']);
+Route::put('/blog/{blogPost}/edit',[\App\Http\Controllers\BlogPostController::class,'update']);
 Route::delete('/blog/{blogPost}',[\App\Http\Controllers\BlogPostController::class,'destroy']);
     
 });

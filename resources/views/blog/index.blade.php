@@ -13,7 +13,7 @@
 					<p> Create New Blog Post</p>
 					
 					<a href="/blog/create/post" class="btn btn-primary">Create New Post</a>
-					<a href="/logout" class="btn btn-primary">Logout</a>
+					<a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" class="btn btn-primary">Logout</a>
 					@else
 					<a href="/login" class="btn btn-primary">Login</a>
 					@endif
